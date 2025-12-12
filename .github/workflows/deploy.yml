@@ -35,6 +35,7 @@ jobs:
         run: |
           docker build -t ${{ env.CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} \
                        -t ${{ env.CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
+                       -f ./src/Dockerfile \
                        ./src
           docker push ${{ env.CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           docker push ${{ env.CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
